@@ -87,7 +87,7 @@ jobs:
           REPOSITORY_NAME: ${{ vars.REPOSITORY_NAME }}
         run: |
           PATH_PREFIX=$(echo $REPOSITORY_NAME | cut -d'/' -f2-)
-          npm run eleventy:prod
+          npm run prod
 
       - name: Upload the artifact
         uses: actions/upload-pages-artifact@v3
@@ -102,8 +102,10 @@ jobs:
         id: deployment
 
       - name: Create an issue
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           DATE=$(date +'%Y-%m-%d %H:%M:%S')
           gh issue create \
-          --title "${DATE} - Deployment: ${{ job.status }}" \
-          --body "${{ steps.deployment.outputs.page_url }}"
+            --title "${DATE} - Deployment: ${{ job.status }}" \
+            --body "${{ steps.deployment.outputs.page_url }}"
