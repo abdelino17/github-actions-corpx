@@ -99,3 +99,11 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+        id: deployment
+
+      - name: Create an issue
+        run: |
+          DATE=$(date +'%Y-%m-%d %H:%M:%S')
+          gh issue create \
+          --title "${DATE} - Deployment: ${{ job.status }}" \
+          --body "${{ steps.deployment.outputs.page_url }}"
