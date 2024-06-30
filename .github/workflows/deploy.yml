@@ -107,5 +107,6 @@ jobs:
         run: |
           DATE=$(date +'%Y-%m-%d %H:%M:%S')
           gh issue create \
+            --repo ${{ github.repository }} \
             --title "${DATE} - Deployment: ${{ job.status }}" \
-            --body "${{ steps.deployment.outputs.page_url }}"
+            --body "URL: ${{ steps.deployment.outputs.page_url }}"
