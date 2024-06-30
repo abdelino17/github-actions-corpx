@@ -6,11 +6,11 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - "!.gitignore"
-    #   - "!README.md"
-    #   - "!CONTRIBUTING.md"
-    #   - "!LICENSE"
+    paths:
+      - "!.gitignore"
+      - "!README.md"
+      - "!CONTRIBUTING.md"
+      - "!LICENSE"
 
   pull_request:
     types:
