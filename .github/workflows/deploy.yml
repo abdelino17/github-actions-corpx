@@ -115,6 +115,8 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         id: deployment
+        with:
+          artifact_name: pages
 
       - name: Create an issue
         env:
