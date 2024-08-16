@@ -169,3 +169,7 @@ spruecss-eleventy-documentation-template/
 - **scss**: The Sass files.
 - **shortcodes**: The available shortcodes.
 - **transforms**: The transformations.
+
+## URLs
+- Github Repo Link: https://abdelino17.github.io/github-actions-corpx/
+- Github Pages Link: https://abdelino17.github.io/github-actions-corpx/
