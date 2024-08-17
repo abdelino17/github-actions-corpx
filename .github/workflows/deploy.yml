@@ -86,11 +86,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build the static pages
+      - name: Set the Path Prefix
         run: |
           PATH_PREFIX="/$(echo "${{ github.repository }}" | cut -d'/' -f2-)/"
-          npm run prod
-          touch _site/.nojekyll
+          echo "PATH_PREFIX=$PATH_PREFIX" >> $GITHUB_ENV
+
+      - name: Build the static pages
+        run: npm run prod
 
       # - name: Upload the artifact
       #   uses: actions/upload-artifact@v4
