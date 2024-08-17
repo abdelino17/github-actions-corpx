@@ -92,6 +92,7 @@ jobs:
         run: |
           PATH_PREFIX=$(echo $REPOSITORY_NAME | cut -d'/' -f2-)
           npm run prod
+          touch _site/.nojekyll
 
       # - name: Upload the artifact
       #   uses: actions/upload-artifact@v4
