@@ -90,7 +90,7 @@ jobs:
         env:
           REPOSITORY_NAME: ${{ vars.REPOSITORY_NAME }}
         run: |
-          PATH_PREFIX=$(echo $REPOSITORY_NAME | cut -d'/' -f2-)
+          PATH_PREFIX="/$(echo $REPOSITORY_NAME | cut -d'/' -f2-)/"
           npm run prod
           touch _site/.nojekyll
 
