@@ -64,9 +64,12 @@ module.exports = config => {
 
   // Required for eleventy to run on GitHub Pages
   // as the site URL will be https://<username>.github.io/<repo>/index.html
-  // when deploying to Pages, set the PATH_PREFIX environment variable to your 
+  // when deploying to Pages, set the PATH_PREFIX environment variable to your
   // repository name
   const pathPrefix = process.env.PATH_PREFIX || '/';
+
+  console.log(`process.env.PATH_PREFIX=${process.env.PATH_PREFIX}`);
+  console.log(`pathPrefix=${pathPrefix}`);
 
   return {
     markdownTemplateEngine: 'njk',
